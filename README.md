@@ -1,5 +1,5 @@
 # Ex.05 Design a Website for Server Side Processing
-## Date:03.04.2024
+## Date:02.04.24
 
 ## AIM:
 To design a website to find surface area of a Right Cylinder in server side.
@@ -30,7 +30,7 @@ Create a HTML file to implement form based input and output.
 Publish the website in the given URL.
 
 ## PROGRAM :
-```c
+```
 math.html
 <!DOCTYPE html>
 <html>
@@ -41,7 +41,7 @@ math.html
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <style type="text/css">
 body {
-    background-color: rgb(252, 159, 255);
+    background-color: lavender;
 }
 .edge {
     width: 100%;
@@ -50,11 +50,11 @@ body {
 }
 .box {
     display: inline-block;
-    border: thick dashed purple;
+    border: thick dashed rgb(123, 171, 239);
     width: 500px;
     min-height: 300px;
     font-size: 20px;
-    background-color:darksalmon;
+    background-color: rgb(231, 239, 116);
 }
 .formelt {
     color: black;
@@ -63,7 +63,7 @@ body {
     margin-bottom: 6px;
 }
 h1 {
-    color: green;
+    color: black;
     padding-top: 20px;
 }
 </style>
@@ -71,8 +71,8 @@ h1 {
 <body>
 <div class="edge">
     <div class="box">
-        <h1>surfacearea of right cylinder</h1>
-        <h3>S.L.Narasimha Reddy(212223040214)</h3>
+        <h1>Surfacearea of Right Cylinder</h1>
+        <h3>Charitha Kamireddy(212221040068)</h3>
         <form method="POST">
             {% csrf_token %}
             <div class="formelt">
@@ -93,21 +93,10 @@ h1 {
 </body>
 </html>
 ```
-```c
-
-urls.py
-from django.contrib import admin
-from django.urls import path
-from mathapp import views
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('squarearea/',views.squarearea,name="squarearea"),
-    path('',views.squarearea,name="squarearea")
-]
-
-views.py
+```
+Views.py
 from django.shortcuts import render
-def squarearea(request):
+def surfacearea(request):
     context = {}
     context['area'] = "0"
     context['r'] = "0"
@@ -127,12 +116,24 @@ def squarearea(request):
     
     return render(request, 'mathapp/math.html',context)
 ```
+```
+urls.py
+from django.contrib import admin
+from django.urls import path
+from mathapp import views
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('surfacearea/',views.surfacearea,name="surfacearea"),
+    path('',views.surfacearea,name="surfcaearea")
+]
+```
+
 
 ## SERVER SIDE PROCESSING:
-![alt text](<Screenshot (6).png>)
+![alt text](<Screenshot (4).png>)
 
 ## HOMEPAGE:
-![alt text](<Screenshot 2024-04-03 223140.png>)
+![alt text](<Screenshot (3).png>)
 
 ## RESULT:
 The program for performing server side processing is completed successfully.
